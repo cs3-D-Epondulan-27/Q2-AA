@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>2nd-Quarter-AA</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="" />
+		<meta name="keywords" content="HTML, CSS, Javascript" />
+		<meta name="revised" content="01/12/24" />
+		<link rel="stylesheet" href="style.css" type="" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi&amp;display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&amp;display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100&amp;display=swap" />
+		<style>
+			.button {
+			background-color:transparent;
+			color:white;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			text-decoration: none;
+			}
+			.dropdown {
+			position: relative;
+			display: inline-block;
+			}
+			.dropdown-content {
+			display: none;
+			position: absolute;
+			background: linear-gradient(to left, #63b5b8, #4e54c8);
+			min-width: 170px;
+			min-height: 90px;
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+			z-index: 1;
+			border-radius: 20px;
+			}
+			.dropdown-content a {
+			box-shadow: none;
+			color: white;
+			padding: 9px 12px;
+			text-decoration: none;
+			display: block;
+			}
+			.dropdown-content a:hover {
+			box-shadow: none;
+			background-color: rgba(0, 0, 0, 0.075);
+			text-decoration: none;
+			}
+			.dropdown:hover .dropdown-content {
+			top: 30px;
+			display: block;
+			}
+			html, body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Reem Kufi', sans-serif;
+			background-image: url('background.png');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			height: 100%;
+			}
+			body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Reem Kufi', sans-serif;
+			}
+			header {
+			top: 0;
+			background: linear-gradient(to right, #63b5b8, #4e54c8);
+			color: white;
+			padding: 5px;
+			position: fixed;
+			width: 100%;
+			z-index: 1000;
+			display: flex;
+			float: left;
+			}
+			header h4 {
+			font-size: 15px;
+			font-family: 'Roboto Condensed', sans-serif;
+			margin: 0;
+			margin-right: 10px;
+			white-space: nowrap;
+			opacity: 0;
+			animation: fadeInFromLeft 1s forwards;
+			}
+			header h1:last-child {
+			margin-bottom: 10px;
+			}
+			header img {
+			height: 51px;
+			margin-right: 10px;
+			opacity: 0;
+			animation: fadeInFromLeft 1s forwards;
+			}
+			@keyframes fadeInFromLeft {
+			from {
+			opacity: 0;
+			transform: translateX(-20px);
+			}
+			to {
+			opacity: 1;
+			transform: translateX(0);
+			}
+			}
+			header nav {
+			display: flex;
+			justify-content: flex-end;
+			margin-left: auto;
+			align-items: center;
+			height: 60px;
+			opacity: 0;
+			animation: fadeInFromRight 1s forwards;
+			}
+			@keyframes fadeInFromRight {
+			from {
+			opacity: 0;
+			transform: translateX(20px);
+			}
+			to {
+			opacity: 1;
+			transform: translateX(0);
+			}
+			}
+			header nav a {
+			color: white;
+			text-decoration: none;
+			margin: 0 15px;
+			font-size: 15px;
+			position: relative;
+			}
+			header nav a:not(.about):after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: -5px;
+			left: 0;
+			opacity: 100;
+			background: transparent;
+			transition: background-color 0.3s ease;
+			}
+			header nav a:not(.about):hover::after {
+			background-color: white;
+			}
+			header nav .about {
+			position: relative;
+			}
+			header nav .about:hover::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			padding: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			}
+			header nav .about:hover::after a {
+			color: white;
+			text-decoration: none;
+			font-size: 12px;
+			}
+			main {
+			font-size: 20px;
+			margin-top: 60px;
+			padding: 20px;
+			text-align: center;
+			color: #2c4c80;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			}
+			.container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			padding: 20px;
+			}
+			.box {
+			margin-top: 90px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			margin-right: 20px;
+			width: auto;
+			transition: transform 0.3s ease;
+			}
+			.box img {
+			border-radius: 10px;
+			margin-bottom: 10px;
+			width: 500px;
+			height: 400px;
+			object-fit: cover;
+			}
+			.text-box {
+			font-size: 22px;
+			width: 100%;
+			border-radius: 30px;
+			background-color: #f0f0f0;
+			padding: 10px;
+			}
+			main h1 {
+			color: white;
+			font-size: 30px;
+			position: absolute;
+			top: 70px;
+			left: 10px;
+			z-index: 2;
+			}
+			main h1::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: white;
+			margin-top: 5px;
+			}
+			.box:hover, .box1:hover {
+			transform: scale(1.1);
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img src="pisay-logo.png" alt="pisay-logo" />
+			<h4>
+				Republic of the Philippines<br />
+				Department of Science and Technology<br />
+				PHILIPPINE SCIENCE HIGH SCHOOL - CARAGA REGION CAMPUS
+			</h4>
+			<nav>
+				<a href="index.html">Home</a>
+				<div class="dropdown">
+					<a href="#about" class="button dropdown">About</a>
+					<div class="dropdown-content"><a href="activities.html">Activities</a> <a href="facilities.html">Facilities</a></div>
+				</div>
+				<a href="achievements.html">Achievements</a> <a href="services.html">Services</a>
+			</nav>
+		</header>
+		<main>
+			<h1>Achievements</h1>
+			<div class="container">
+				<div class="box">
+					<img src="math.jpg" alt="math" />
+					<div class="text-box">
+						<h3>MATHEMATICS and SCIENCE</h3>
+						<p>
+							Mathematics and Science form the core structure of a well-rounded education. Our school's emphasis on Math and Sciences have nurtured talented students, through innovative teaching methods, well qualified
+							teachers, and a curriculum designed to achieve critical thinking.
+						</p>
+					</div>
+				</div>
+				<div class="box">
+					<img src="music.jpg" alt="Image 2" />
+					<div class="text-box">
+						<h3>MUSIC and DANCING</h3>
+						<p>
+							In PSHS - CRC we are aimed to improve every skill not just academically but also through music, and dancing. Our latest music video the “UNBREAKABLE” features exactly that, involving talented scholars. We are
+							always open to developing different skills to shape your future.
+						</p>
+					</div>
+				</div>
+				<div class="box">
+					<img src="eng.jpg" alt="Image 3" />
+					<div class="text-box">
+						<h3>LANGUAGE COMMUNICATION ARTS</h3>
+						<p>
+							English is the vital point in academic and career success, it serves as the fundamental skill for discipline. Join us as we further expand our knowledge and skills providing you with effective social skills and
+							developing a love for literature.
+						</p>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

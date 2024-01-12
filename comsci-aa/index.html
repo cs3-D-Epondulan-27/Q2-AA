@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>2nd-Quarter-AA</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="" />
+		<meta name="keywords" content="HTML, CSS, Javascript" />
+		<meta name="revised" content="01/12/24" />
+		<link rel="stylesheet" href="style.css" type="" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi&amp;display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&amp;display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100&amp;display=swap" />
+		<style>
+			.button {
+			background-color:transparent;
+			color:white;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			text-decoration: none;
+			}
+			.dropdown {
+			position: relative;
+			display: inline-block;
+			}
+			.dropdown-content {
+			display: none;
+			position: absolute;
+			background: linear-gradient(to left, #63b5b8, #4e54c8);
+			min-width: 170px;
+			min-height: 90px;
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+			z-index: 1;
+			border-radius: 20px;
+			}
+			.dropdown-content a {
+			box-shadow: none;
+			color: white;
+			padding: 9px 12px;
+			text-decoration: none;
+			display: block;
+			}
+			.dropdown-content a:hover {
+			box-shadow: none;
+			background-color: rgba(0, 0, 0, 0.075);
+			text-decoration: none;
+			}
+			.dropdown:hover .dropdown-content {
+			top: 30px;
+			display: block;
+			}
+			html, body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Reem Kufi', sans-serif;
+			background-image: url('background.png');
+			background: linear-gradient(transparent, #ffffff), url('background.png');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: #ffffff;
+			height: 100%;
+			}
+			body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Reem Kufi', sans-serif;
+			}
+			header {
+			top: 0;
+			background: linear-gradient(to right, #63b5b8, #4e54c8);
+			color: white;
+			padding: 5px;
+			position: fixed;
+			width: 100%;
+			z-index: 1000;
+			display: flex;
+			float: left;
+			}
+			header h4 {
+			font-size: 15px;
+			font-family: 'Roboto Condensed', sans-serif;
+			margin: 0;
+			margin-right: 10px;
+			white-space: nowrap;
+			opacity: 0;
+			animation: fadeInFromLeft 1s forwards;
+			}
+			header h1:last-child {
+			margin-bottom: 10px;
+			}
+			header img {
+			height: 51px;
+			margin-right: 10px;
+			opacity: 0;
+			animation: fadeInFromLeft 1s forwards;
+			}
+			@keyframes fadeInFromLeft {
+			from {
+			opacity: 0;
+			transform: translateX(-20px);
+			}
+			to {
+			opacity: 1;
+			transform: translateX(0);
+			}
+			}
+			header nav {
+			display: flex;
+			justify-content: flex-end;
+			margin-left: auto;
+			align-items: center;
+			height: 60px;
+			opacity: 0;
+			animation: fadeInFromRight 1s forwards;
+			}
+			@keyframes fadeInFromRight {
+			from {
+			opacity: 0;
+			transform: translateX(20px);
+			}
+			to {
+			opacity: 1;
+			transform: translateX(0);
+			}
+			}
+			header nav a {
+			color: white;
+			text-decoration: none;
+			margin: 0 15px;
+			font-size: 15px;
+			position: relative;
+			}
+			header nav a:not(.about):after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: -5px;
+			left: 0;
+			opacity: 100;
+			background: transparent;
+			transition: background-color 0.3s ease;
+			}
+			header nav a:not(.about):hover::after {
+			background-color: white;
+			}
+			header nav .about {
+			position: relative;
+			}
+			header nav .about:hover::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			padding: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			}
+			header nav .about:hover::after a {
+			color: white;
+			text-decoration: none;
+			font-size: 12px;
+			}
+			main {
+			margin-top: 60px;
+			padding: 20px;
+			text-align: center;
+			color: #6c9ecc;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			}
+			main h1 {
+			color: white;
+			font-size: 30px;
+			position: absolute;
+			top: 70px;
+			left: 10px;
+			z-index: 2;
+			}
+			main h1::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: white;
+			margin-top: 5px;
+			}
+			.floating-box {
+			margin-top: 90px;
+			margin-bottom: 15px;
+			width: 80%;
+			background-color: white;
+			padding: 20px;
+			border-radius: 30px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			opacity: 1;
+			}
+			.text-box {
+			font-size: 18px;
+			width: 500px;
+			height: 150px;
+			background-color: #a2c2df;
+			color: white;
+			border-radius: 10px;
+			margin-top: 20px;
+			padding: 10px;
+			}
+			.center-box {
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+			margin: 20px auto;
+			}
+			.horizontal-box {
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+			display: inline-block;
+			margin: 0 10px;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			.floating-box-container {
+			justify-content: center;
+			align-items: center;
+			}
+			main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			}
+			.horizontal-box-container {
+			display: flex;
+			justify-content: center;
+			}
+			.text-box.horizontal-box {
+			width: 500px;
+			height: 190px;
+			margin: 0 10px;
+			}
+			.floating-box h3 {
+			font-size: 24px;
+			}
+			.floating-box h2{
+			font-size: 35px;
+			}
+			.horizontal-box2{
+			   color:#ffffff;
+			   background-color: #2c4c80;
+			   font-size: 20px;
+			   margin: 20px;
+			   height:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img src="pisay-logo.png" alt="pisay-logo" />
+			<h4>
+				Republic of the Philippines<br />
+				Department of Science and Technology<br />
+				PHILIPPINE SCIENCE HIGH SCHOOL - CARAGA REGION CAMPUS
+			</h4>
+			<nav>
+				<a href="index.html">Home</a>
+				<div class="dropdown">
+					<a href="#about" class="button dropdown">About</a>
+					<div class="dropdown-content"><a href="activities.html">Activities</a> <a href="facilities.html">Facilities</a></div>
+				</div>
+				<a href="achievements.html">Achievements</a> <a href="services.html">Services</a>
+			</nav>
+		</header>
+		<main>
+			<h1>Home</h1>
+			<div class="floating-box">
+				<h2>Do you want to be a PISAY SCHOLAR?</h2>
+				<h3>
+					Do you want to be a Philippine Science Scholar? Well, the main purpose of PSHS education is the holistic development of its scholars. Each PSHS scholar has unique giftedness and potentials which should be recognized and
+					nurtured so that each one develops to the fullest extent possible. The PSHS special science curriculum engenders in the scholars' passion for learning and inspires them to choose careers in science and technology and,
+					hence contribute to national development. The PSHS is most effective in an environment characterized by all-around performance excellence, dynamic and collaborative leadership, outstanding facilities, resources and
+					support alliances, and an unswerving commitment for service to the nation and to one another.
+				</h3>
+			</div>
+			<div class="text-box center-box">
+				<h2>Pursuit of TRUTH</h2>
+				<h3>A scholar seeks true knowledge and wisdom, and is always honest and respectful</h3>
+			</div>
+			<div class="horizontal-box-container">
+				<div class="text-box horizontal-box">
+					<h2>Passion for EXCELLENCE</h2>
+					<h3>A scholar goes beyond what is expected, does his/her best at every opportunity, and commits to achieving outstanding performance in all undertakings.</h3>
+				</div>
+				<div class="text-box horizontal-box">
+					<h2>Commitment to SERVICE</h2>
+					<h3>A scholar uses his/her talents and resources to render service to God, country, and fellowmen for the betterment of the society.</h3>
+				</div>
+			</div>
+			<div class="horizontal-box-container">
+				<div class="text-box horizontal-box2">
+					<h2>BE A PISAY SCHOLAR</h2>
+					<ul>
+						<li>Free tuition</li>
+						<li>Free loans of books</li>
+						<li>Monthly stipend</li>
+						<li>Life insurance</li>
+						<li>Monthly living allowance</li>
+						<li>Uniform allowance</li>
+						<li>Transportation allowance</li>
+					</ul>
+				</div>
+				<div class="text-box horizontal-box2">
+					<h2>REQUIREMENTS</h2>
+					<p>Must be a Grade 6 elementary pupil from a public or private school duly recognized by DepEd</p>
+					<ul>
+						<li>A Filipino citizen and not be more that 15 years of age</li>
+						<li>With final grade of 85% or better in Grade 5 Science and Mathematics subjects</li>
+						<li>Not have taken the PSHS NCE previously</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

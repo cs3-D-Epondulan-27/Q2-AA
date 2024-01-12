@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>2nd-Quarter-AA</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="" />
+		<meta name="keywords" content="HTML, CSS, Javascript" />
+		<meta name="revised" content="01/12/24" />
+		<link rel="stylesheet" href="style.css" type="" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" />
+		<style>
+			.button {
+			background-color:transparent;
+			color:white;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			text-decoration: none;
+			}
+			.dropdown {
+			position: relative;
+			display: inline-block;
+			}
+			.dropdown-content {
+			display: none;
+			position: absolute;
+			background: linear-gradient(to left, #63b5b8, #4e54c8);
+			min-width: 170px;
+			min-height: 90px;
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+			z-index: 1;
+			border-radius: 20px;
+			}
+			.dropdown-content a {
+			box-shadow: none;
+			color: white;
+			padding: 9px 12px;
+			text-decoration: none;
+			display: block;
+			}
+			.dropdown-content a:hover {
+			box-shadow: none;
+			background-color: rgba(0, 0, 0, 0.075);
+			text-decoration: none;
+			}
+			.dropdown:hover .dropdown-content {
+			top: 30px;
+			display: block;
+			}
+			html, body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Reem Kufi', sans-serif;
+			background-image: url('background.png');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: #525c37;
+			height: 100%;
+			}
+			body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Reem Kufi', sans-serif;
+			}
+			header {
+			top: 0;
+			background: linear-gradient(to right, #63b5b8, #4e54c8);
+			color: white;
+			padding: 5px;
+			position: fixed;
+			width: 100%;
+			z-index: 1000;
+			display: flex;
+			float: left;
+			}
+			header h4 {
+			font-size: 15px;
+			font-family: 'Roboto Condensed', sans-serif;
+			margin: 0;
+			margin-right: 10px;
+			white-space: nowrap;
+			opacity: 0;
+			animation: fadeInFromLeft 1s forwards;
+			}
+			header h1:last-child {
+			margin-bottom: 10px;
+			}
+			header img {
+			height: 51px;
+			margin-right: 10px;
+			opacity: 0;
+			animation: fadeInFromLeft 1s forwards;
+			}
+			@keyframes fadeInFromLeft {
+			from {
+			opacity: 0;
+			transform: translateX(-20px);
+			}
+			to {
+			opacity: 1;
+			transform: translateX(0);
+			}
+			}
+			header nav {
+			display: flex;
+			justify-content: flex-end;
+			margin-left: auto;
+			align-items: center;
+			height: 60px;
+			opacity: 0;
+			animation: fadeInFromRight 1s forwards;
+			}
+			@keyframes fadeInFromRight {
+			from {
+			opacity: 0;
+			transform: translateX(20px);
+			}
+			to {
+			opacity: 1;
+			transform: translateX(0);
+			}
+			}
+			header nav a {
+			color: white;
+			text-decoration: none;
+			margin: 0 15px;
+			font-size: 15px;
+			position: relative;
+			}
+			header nav a:not(.about):after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: -5px;
+			left: 0;
+			opacity: 100;
+			background: transparent;
+			transition: background-color 0.3s ease;
+			}
+			header nav a:not(.about):hover::after {
+			background-color: white;
+			}
+			header nav .about {
+			position: relative;
+			}
+			header nav .about:hover::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			padding: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			}
+			header nav .about:hover::after a {
+			color: white;
+			text-decoration: none;
+			font-size: 12px;
+			}
+			main {
+			margin-top: 60px;
+			padding: 20px;
+			text-align: center;
+			color: #6c9ecc;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			}
+			.container {
+			margin-top: 60px;
+			position: relative;
+			}
+			main h1 {
+			color: white;
+			font-size: 30px;
+			position: absolute;
+			top: 70px;
+			left: 20px;
+			z-index: 2;
+			}
+			main h1::after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: white;
+			margin-top: 5px;
+			}
+			.text-box {
+			font-size: 18px;
+			width: 600px;
+			height: 125px;
+			background-color: #2c4c80;
+			color: #ffffff;
+			border-radius: 10px;
+			padding: 10px;
+			padding-top: 0px;;
+			}
+			.center-box {
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+			margin: 20px auto;
+			}
+			.horizontal-box {
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+			box-shadow: rgb(255, 255, 255);
+			display: inline-block;
+			margin: 0 10px;
+			}
+			.floating-box-container {
+			justify-content: center;
+			align-items: center;
+			}
+			main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			}
+			.horizontal-box-container {
+			display: flex;
+			justify-content: center;
+			}
+			.text-box.horizontal-box {
+			font-size: 18px;
+			width: 40%;
+			height: 250px;
+			margin: 0 10px;
+			}
+			.floating-box h3 {
+			font-size: 24px;
+			}
+			.floating-box h2{
+			font-size: 35px;
+			}
+			.center-box{
+			margin-top: 90px;
+			}
+			.tablecont{
+			margin-top: 20px;
+			background: white;
+			border-radius: 20px;
+			padding: 5px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+			}
+			table{
+			border-radius: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img src="pisay-logo.png" alt="pisay-logo" />
+			<h4>
+				Republic of the Philippines <br />
+				Department of Science and Technology <br />
+				PHILIPPINE SCIENCE HIGH SCHOOL - CARAGA REGION CAMPUS
+			</h4>
+			<nav>
+				<a href="index.html">Home</a>
+				<div class="dropdown">
+					<a href="#about" class="button dropdown">About</a>
+					<div class="dropdown-content">
+						<a href="activities.html">Activities</a>
+						<a href="facilities.html">Facilities</a>
+					</div>
+				</div>
+				<a href="achievements.html">Achievements</a>
+				<a href="services.html">Services</a>
+			</nav>
+		</header>
+		<main>
+			<h1>Services</h1>
+			<div class="text-box center-box">
+				<h2>Mission</h2>
+				<p>Advancing premier high school STEM education for the people.</p>
+			</div>
+			<div class="horizontal-box-container">
+				<div class="text-box horizontal-box">
+					<h2>Vision</h2>
+					<p>
+						We are the leading science high school in the Asia Pacific Region preparing our scholars to become globally competitive Filipino scientists equipped with 21st century skills and imbued with the core values of
+						Integrity, Excellence and Service to Nation.
+					</p>
+				</div>
+				<div class="text-box horizontal-box">
+					<h2>Mandate</h2>
+					<p>
+						The Philippine Science High School System is dedicated to providing relevant secondary education with emphasis on science, technology, engineering, and mathematics and aimed at preparing students to become
+						globally-competitive Filipino science and technology leaders and professionals imbued with core values of integrity, excellence, and service to the nation. Moreover, the PSHS System is committed to continual
+						improvement and compliance to existing statutory and regulatory requirements.
+					</p>
+				</div>
+			</div>
+			<div class="tablecont">
+				<div class="table">
+					<h2>6-year Curriculum</h2>
+					<table style="border: 1px solid black">
+						<tr>
+							<th colspan="4" style="border: solid; border-width: 1px">FOUNDATION YEARS</th>
+							<th colspan="4" style="border: solid; border-width: 1px">ADVANCEMENT YEARS</th>
+							<th colspan="4" style="border: solid; border-width: 1px">SPECIALIZATION YEARS</th>
+						</tr>
+						<tr>
+							<th colspan="2" style="border: solid; border-width: 1px">GRADE 7</th>
+							<th colspan="2" style="border: solid; border-width: 1px">GRADE 8</th>
+							<th colspan="2" style="border: solid; border-width: 1px">GRADE 9</th>
+							<th colspan="2" style="border: solid; border-width: 1px">GRADE 10</th>
+							<th colspan="2" style="border: solid; border-width: 1px">GRADE 11</th>
+							<th colspan="2" style="border: solid; border-width: 1px">GRADE 12</th>
+						</tr>
+						<tr style="background: #2c4c80; color: #ffffff;">
+							<th>Subjects</th>
+							<th>Units</th>
+							<th>Subjects</th>
+							<th>Units</th>
+							<th>Subjects</th>
+							<th>Units</th>
+							<th>Subjects</th>
+							<th>Units</th>
+							<th>Subjects</th>
+							<th>Units</th>
+							<th>Subjects</th>
+							<th>Units</th>
+						</tr>
+						<tr>
+							<th rowspan="3" style="border: solid; border-width: 1px">Integrated Science 1</th>
+							<th rowspan="3" style="border: solid; border-width: 1px">1.7</th>
+							<th rowspan="3" style="border: solid; border-width: 1px">Integrated Science 2</th>
+							<th rowspan="3" style="border: solid; border-width: 1px">2</th>
+							<th style="border: solid; border-width: 1px">Biology 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Biology 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th rowspan="3" style="border: solid; border-width: 1px">Science(Biology 3, Chemistry 3, or Physics 3)</th>
+							<th rowspan="3" style="border: solid; border-width: 1px">1.7</th>
+							<th rowspan="3" style="border: solid; border-width: 1px">Science(Biology 4, Chemistry 4, or Physics 4)</th>
+							<th rowspan="3" style="border: solid; border-width: 1px">1.7</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Chemistry 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Chemistry 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Physics 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Physics 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Mathematics 1</th>
+							<th style="border: solid; border-width: 1px">1.7</th>
+							<th style="border: solid; border-width: 1px">Mathematics 2</th>
+							<th style="border: solid; border-width: 1px">1.7</th>
+							<th style="border: solid; border-width: 1px">Mathematics 3</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Mathematics 4</th>
+							<th style="border: solid; border-width: 1px">1.3</th>
+							<th style="border: solid; border-width: 1px">Mathematics 5</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Mathematics 6</th>
+							<th style="border: solid; border-width: 1px">1</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">English 1</th>
+							<th style="border: solid; border-width: 1px">1.3</th>
+							<th style="border: solid; border-width: 1px">English 2</th>
+							<th style="border: solid; border-width: 1px">1.3</th>
+							<th style="border: solid; border-width: 1px">English 3</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">English 4</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">English 5</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">English 6</th>
+							<th style="border: solid; border-width: 1px">1</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Filipino 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Filipino 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Filipino 3</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Filipino 4</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Filipino 5</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Filipino 6</th>
+							<th style="border: solid; border-width: 1px">1</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Social Science 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Social Science 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Social Science 3</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Social Science 4</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Social Science 5</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Social Science 6</th>
+							<th style="border: solid; border-width: 1px">1</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Physical Education/Health/Music(PEHM) 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Physical Education/Health/Music(PEHM) 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Physical Education/Health/Music(PEHM) 3</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Physical Education/Health/Music(PEHM) 4</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Values Education 1</th>
+							<th style="border: solid; border-width: 1px">0.7</th>
+							<th style="border: solid; border-width: 1px">Values Education 2</th>
+							<th style="border: solid; border-width: 1px">0.7</th>
+							<th style="border: solid; border-width: 1px">Values Education 3</th>
+							<th style="border: solid; border-width: 1px">0.7</th>
+							<th style="border: solid; border-width: 1px">Values Education 4</th>
+							<th style="border: solid; border-width: 1px">0.7</th>
+							<th style="border: solid; border-width: 1px">STEM Research 2</th>
+							<th style="border: solid; border-width: 1px">2</th>
+							<th style="border: solid; border-width: 1px">STEM Research 3</th>
+							<th style="border: solid; border-width: 1px">2</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Adtech 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Adtech 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Statistics 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">STEM Research 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Core and Electives 1</th>
+							<th style="border: solid; border-width: 1px">1.7</th>
+							<th style="border: solid; border-width: 1px">Core and Electives 2</th>
+							<th style="border: solid; border-width: 1px">1.7</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">Computer Science 1</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Computer Science 2</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Computer Science 3</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">Computer Science 4</th>
+							<th style="border: solid; border-width: 1px">1</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+						</tr>
+						<tr>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">Earth Science</th>
+							<th style="border: solid; border-width: 1px">0.7</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+							<th style="border: solid; border-width: 1px">-</th>
+						</tr>
+						<tr style="background: #2c4c80; color: #ffffff;">
+							<th style="border: solid; border-width: 1px">Total</th>
+							<th style="border: solid; border-width: 1px">10.4</th>
+							<th style="border: solid; border-width: 1px"></th>
+							<th style="border: solid; border-width: 1px">11.4</th>
+							<th style="border: solid; border-width: 1px"></th>
+							<th style="border: solid; border-width: 1px">10.7</th>
+							<th style="border: solid; border-width: 1px"></th>
+							<th style="border: solid; border-width: 1px">11</th>
+							<th style="border: solid; border-width: 1px"></th>
+							<th style="border: solid; border-width: 1px">9.4</th>
+							<th style="border: solid; border-width: 1px"></th>
+							<th style="border: solid; border-width: 1px">9.4</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
+
